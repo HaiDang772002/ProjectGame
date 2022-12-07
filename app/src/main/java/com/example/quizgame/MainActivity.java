@@ -28,7 +28,6 @@ HistoryFragment historyFragment=new HistoryFragment();
         setContentView(R.layout.activity_main);
         BottomNavigationView a=findViewById(R.id.bottom_navigation);
         a.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()){
@@ -50,10 +49,4 @@ HistoryFragment historyFragment=new HistoryFragment();
         fragmentTransaction.commit();
     }
 
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-
-    }
 }
