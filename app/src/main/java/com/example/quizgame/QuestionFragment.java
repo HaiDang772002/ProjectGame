@@ -1,5 +1,6 @@
 package com.example.quizgame;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -16,8 +17,8 @@ public class QuestionFragment extends Fragment implements View.OnClickListener{
 
     }
     public QuestionFragment(int count,int point) {
-       this.count=count;
-       this.point=point;
+       QuestionFragment.count =count;
+       QuestionFragment.point =point;
     }
 TextView myQuestion;
     LinearLayout myAnswer1,myAnswer2;
@@ -25,6 +26,7 @@ TextView myQuestion;
     static int count;
     static int point;
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -39,32 +41,28 @@ TextView myQuestion;
        myQuestion.setText(questionItem);
       myAnswer1=view.findViewById(R.id.correct);
       myAnswer2=view.findViewById(R.id.incorrect);
-      myAnswer1.setOnClickListener(this::onClick);
-      myAnswer2.setOnClickListener(this::onClick);
-      myQuestionOrder.setOnClickListener(this::onClick);
-        myQuestionOrder.setText(String.valueOf(count+1)+"/5");
-Log.d("Count", String.valueOf(count));
+      myAnswer1.setOnClickListener(this);
+      myAnswer2.setOnClickListener(this);
+      myQuestionOrder.setOnClickListener(this);
+        myQuestionOrder.setText(count + 1 +"/5");
        return view;
     }
 
     @Override
     public void onClick(View view) {
-        String ab=QuestionList.Answer[PlayFragment.subject*5+QuestionFragment.count][0];
-        Log.d("Point",ab);
         if(view.getId()==myAnswer1.getId()){
             point+=1;
         }
         if(count==4){
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new HistoryFragment()).commit();
+            requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new PointFragment()).commit();
             count=0;
-            Log.d("Point",String.valueOf(point));
-            point=0;
         }
         else {
             count+=1;
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new QuestionFragment(count,point)
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new QuestionFragment(count,point)
         ).commit();
 
     }
+    }
 
-}}
+}

@@ -3,9 +3,6 @@ package com.example.quizgame;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,14 +22,14 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState)  {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_play, container, false);
-        mySubject1=(LinearLayout) view.findViewById(R.id.geography);
-        mySubject2=(LinearLayout) view.findViewById(R.id.history);
-        mySubject3=(LinearLayout) view.findViewById(R.id.science);
-        mySubject4=(LinearLayout) view.findViewById(R.id.art);
-        mySubject1.setOnClickListener(this::onClick);
-        mySubject2.setOnClickListener(this::onClick);
-        mySubject3.setOnClickListener(this::onClick);
-        mySubject4.setOnClickListener(this::onClick);
+        mySubject1=view.findViewById(R.id.geography);
+        mySubject2= view.findViewById(R.id.history);
+        mySubject3=view.findViewById(R.id.science);
+        mySubject4= view.findViewById(R.id.art);
+        mySubject1.setOnClickListener(this);
+        mySubject2.setOnClickListener(this);
+        mySubject3.setOnClickListener(this);
+        mySubject4.setOnClickListener(this);
         return view;
     }
 
@@ -48,7 +45,7 @@ public class PlayFragment extends Fragment implements View.OnClickListener {
         } else if (view.getId() == mySubject4.getId()) {
             subject = 3;
         }
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers, levelFragment).commit();
+        requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers, levelFragment).commit();
         Log.d("The sub_num is ", String.valueOf(subject));
     }
 
