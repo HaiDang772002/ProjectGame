@@ -2,7 +2,7 @@ package com.example.quizgame;
 
 public class QuestionList {
     static String Question[][]={
-            {"Địa Dễ 1","Địa TB 1","Địa Khó 1"},
+            {"Trung Quốc là quốc gia đông dân nhất ?","Địa TB 1","Địa Khó 1"},
             {"Địa Dễ 2","Địa TB 2","Địa Khó 2"},
             {"Địa Dễ 3","Địa TB 3","Địa Khó 3"},
             {"Địa Dễ 4","Địa TB 4","Địa Khó 4"},
@@ -24,7 +24,7 @@ public class QuestionList {
             {"NT Dễ 5","NT TB 5","NT Khó 5"}
     };
     static String Answer[][]={
-            {"correct","correct","correct"},
+            {"incorrect","correct","correct"},
             {"correct","correct","correct"},
             {"correct","correct","correct"},
             {"correct","correct","correct"},

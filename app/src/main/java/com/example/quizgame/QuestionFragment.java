@@ -13,12 +13,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class QuestionFragment extends Fragment implements View.OnClickListener{
-    public QuestionFragment() {
-
-    }
+    public QuestionFragment() {}
     public QuestionFragment(int count,int point) {
-       QuestionFragment.count =count;
-       QuestionFragment.point =point;
+       this.count =count;
+       this.point =point;
     }
 TextView myQuestion;
     LinearLayout myAnswer1,myAnswer2;
@@ -50,18 +48,17 @@ TextView myQuestion;
 
     @Override
     public void onClick(View view) {
-        if(view.getId()==myAnswer1.getId()){
-            point+=1;
+       if(getResources().getResourceEntryName(view.getId()).equals(String.valueOf(QuestionList.Answer[PlayFragment.subject*5+QuestionFragment.count][LevelFragment.level]))){
+           point+=1;
         }
+
         if(count==4){
             requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new PointFragment()).commit();
-            count=0;
         }
         else {
             count+=1;
         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new QuestionFragment(count,point)
         ).commit();
-
     }
     }
 

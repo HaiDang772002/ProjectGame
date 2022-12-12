@@ -63,8 +63,8 @@ HistoryFragment historyFragment=new HistoryFragment();
                 startActivity(feedback);
                 break;
             case R.id.information:
-                Intent intent=new Intent(this,Information.class);
-                startActivity(intent);
+                Intent information=new Intent(this,Information.class);
+                startActivity(information);
                 break;
         }
         return super.onOptionsItemSelected(item);

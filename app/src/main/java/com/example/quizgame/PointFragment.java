@@ -50,5 +50,6 @@ Button complete_btn, share_btn;
     public void onDestroyView() {
         super.onDestroyView();
         QuestionFragment.point=0;
+        QuestionFragment.count=0;
     }
 }
