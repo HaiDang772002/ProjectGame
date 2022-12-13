@@ -3,10 +3,10 @@ package com.example.quizgame;
 public class QuestionList {
     static String Question[][]={
             {"Trung Quốc là quốc gia đông dân nhất ?","Địa TB 1","Địa Khó 1"},
-            {"Địa Dễ 2","Địa TB 2","Địa Khó 2"},
-            {"Địa Dễ 3","Địa TB 3","Địa Khó 3"},
-            {"Địa Dễ 4","Địa TB 4","Địa Khó 4"},
-            {"Địa Dễ 5","Địa TB 5","Địa Khó 5"},
+            {"Hà Nội là thủ đô của Việt Nam?","Địa TB 2","Địa Khó 2"},
+            {"Nga có diện tích lớn thứ 2 thế giới?","Địa TB 3","Địa Khó 3"},
+            {"Dubai là một tỉnh của Qatar?","Địa TB 4","Địa Khó 4"},
+            {"Dân số Mỹ cao thứ 2 trên thế giới?","Địa TB 5","Địa Khó 5"},
             {"Sử Dễ 1","Sử TB 1","Sử Khó 1"},
             {"Sử Dễ 2","Sử TB 2","Sử Khó 2"},
             {"Sử Dễ 3","Sử TB 3","Sử Khó 3"},
@@ -24,11 +24,11 @@ public class QuestionList {
             {"NT Dễ 5","NT TB 5","NT Khó 5"}
     };
     static String Answer[][]={
+            {"correct","correct","correct"},
+            {"correct","correct","correct"},
             {"incorrect","correct","correct"},
-            {"correct","correct","correct"},
-            {"correct","correct","correct"},
-            {"correct","correct","correct"},
-            {"correct","correct","correct"},
+            {"incorrect","correct","correct"},
+            {"incorrect","correct","correct"},
             {"correct","correct","correct"},
             {"correct","correct","correct"},
             {"correct","correct","correct"},

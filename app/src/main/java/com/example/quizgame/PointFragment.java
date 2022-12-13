@@ -3,19 +3,19 @@ package com.example.quizgame;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Objects;
 
 public class PointFragment extends Fragment implements View.OnClickListener{
-
+    static ArrayList<Task> taskList=new ArrayList<>();
     public PointFragment() {
-
     }
 Button complete_btn, share_btn;
     TextView totalPoint;
@@ -36,6 +36,8 @@ Button complete_btn, share_btn;
     @Override
     public void onClick(View view) {
         if(view.getId()==complete_btn.getId()){
+            addHistory();
+            saveData();
             requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new PlayFragment()).commit();
         }
         else if (view.getId()==share_btn.getId()){
@@ -51,5 +53,26 @@ Button complete_btn, share_btn;
         super.onDestroyView();
         QuestionFragment.point=0;
         QuestionFragment.count=0;
+        Collections.shuffle(QuestionFragment.intList);
+    }
+    private void saveData(){
+        Database database=new Database(requireContext());
+        database.saveTasks(taskList);
+    }
+    private void addHistory(){
+        String point=String.valueOf(QuestionFragment.point)+"/"+"5";
+        String subject=String.valueOf(PlayFragment.subject);
+        String level=String.valueOf(LevelFragment.level);
+
+        if(subject.equals("0")) subject = "Địa lý";
+        else if(subject.equals("1")) subject="Lịch sử";
+        else if(subject.equals("2")) subject="Khoa học";
+        else if(subject.equals("3")) subject="Nghệ thuật";
+
+        if(level.equals("0")) level="Dễ";
+        if(level.equals("1")) level="Trung Bình";
+        if(level.equals("2")) level="Khó";
+
+        taskList.add(new Task(point,subject,level));
     }
 }
