@@ -53,7 +53,6 @@ Button complete_btn, share_btn;
         super.onDestroyView();
         QuestionFragment.point=0;
         QuestionFragment.count=0;
-        Collections.shuffle(QuestionFragment.intList);
     }
     private void saveData(){
         Database database=new Database(requireContext());

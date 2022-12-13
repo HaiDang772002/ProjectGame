@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import java.util.Collections;
+
 public class LevelFragment extends Fragment implements View.OnClickListener {
     static int level=0;
     public LevelFragment() {
@@ -39,6 +41,11 @@ public class LevelFragment extends Fragment implements View.OnClickListener {
            level= 2;
     }
         requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.containers,new QuestionFragment(0,0)).commit();
-        Log.d("The level_num is", String.valueOf(level));
 }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        Collections.shuffle(QuestionFragment.intList);
+    }
 }

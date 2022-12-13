@@ -35,8 +35,10 @@ TextView myQuestion;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
        View view= inflater.inflate(R.layout.fragment_question, container, false);
+
         int index=PlayFragment.subject*5+intList.get(QuestionFragment.count);
         String questionItem=QuestionList.Question[index][LevelFragment.level];
+
        myQuestionOrder=view.findViewById(R.id.question_order);
        myQuestion=view.findViewById(R.id.myquestion);
        myQuestion.setText(questionItem);
@@ -45,6 +47,7 @@ TextView myQuestion;
       myAnswer1.setOnClickListener(this);
       myAnswer2.setOnClickListener(this);
       myQuestionOrder.setOnClickListener(this);
+
       myQuestionOrder.setText(count + 1 +"/5");
        return view;
     }
